@@ -246,3 +246,31 @@ for (let fibNo of fibonacci){
 let iter = fibonacci[Symbol.iterator]();
 iter.next();
 iter.next();
+
+
+Generators
+===========
+
+A function that can suspend and resume its execution at a later time.
+
+function * genEvenNos(){
+    yield 2;
+    yield 4;
+    yield 6;
+    yield 8;
+    yield 10;
+    return;
+}
+
+var gen = genEvenNos()
+
+gen.next()
+.
+.
+
+OR
+
+for (let evenNo of genEvenNos()){
+    console.log(evenNo)
+}
+

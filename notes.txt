@@ -1,0 +1,84 @@
+Magesh Kuppan
+
+Schedule
+    Commence    : 10:00 Hrs
+    Tea Break   : 11:30 Hrs (20 mins)
+    Lunch Break : 13:30 (1 Hr)
+    Tea Break   : 16:00 (20 mins)
+    Wind Up     : 18:00 
+
+Breakup:
+    ES6 & TypeScript (1 Day)
+    Advanced Typescript (1 Day)
+    Angular (4 Days)
+    State Management (2 Days)
+
+About You
+    Name
+    Total Experience
+    Primary Skillset
+    Experience in Angular.js / Angular / React / Vue.js
+
+
+Dart
+
+CoffeeScript
+TypeScript
+Script#
+
+ES6 (ECMAScript 6 / ES2015 / ESNext)
+
+1. let (block scoped)
+2. const
+3. array destructuring
+4. rest operator (array)
+5. spread operator (array)
+6. object destructuring
+7. rest operator (object)
+8. spread operator (object)
+9. default arguments
+10. arrow functions
+
+
+ES5
+function addEven(){
+    var evenNumbers = Array.prototype.filter.call(arguments, function(no){
+        return no % 2 === 0;
+    })
+    var result = 0;
+    for (var i=0; i < evenNumbers.length ; i++){
+        result += evenNumbers[i]
+    }
+    return result;
+}
+
+in ES6
+function addEven(...nos){
+    return nos.filter(no => no % 2 === 0)
+        .reduce((result, evenNo) => result + evenNo, 0)
+}
+
+const addEven = (...nos) => nos.filter(no => no % 2 === 0)
+        .reduce((result, evenNo) => result + evenNo, 0);
+
+
+var products = [
+	{id : 6, name : 'Pen', cost : 50, units : 20, category : 'stationary'},
+	{id : 9, name : 'Ten', cost : 70, units : 70, category : 'stationary'},
+	{id : 3, name : 'Len', cost : 60, units : 60, category : 'grocery'},
+	{id : 5, name : 'Zen', cost : 30, units : 30, category : 'grocery'},
+	{id : 1, name : 'Ken', cost : 20, units : 80, category : 'utencil'}
+];
+
+1. Find the costliest product 
+2. Find the product that has the least stock
+3. Group the products by category
+    {
+        'stationary' : [
+            {id : 6, name : 'Pen', cost : 50, units : 20, category : 'stationary'}, 
+            {id : 9, name : 'Ten', cost : 70, units : 70, category : 'stationoary'}
+        ],
+        'grocery' : [
+            {id : 3, name : 'Len', cost : 60, units : 60},
+            ......
+    }

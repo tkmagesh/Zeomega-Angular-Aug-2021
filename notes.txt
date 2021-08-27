@@ -274,3 +274,35 @@ for (let evenNo of genEvenNos()){
     console.log(evenNo)
 }
 
+Symbol 
+===========
+A new data type
+
+const Employee = (() => { 
+    var idSymbol = Symbol('id')
+    class Employee{
+        name = '';
+        salary = 0;
+
+        constructor(id, name, salary){
+            this[idSymbol] = id;
+            this.name = name;
+            this.salary = salary;
+        }
+        display(){
+            console.log(this[idSymbol], this.name, this.salary);
+        }
+    }
+    return Employee;
+})()
+
+template strings
+================
+var x = 100, y = 200
+
+var s2 = `Sum of ${x} and ${y} is ${x+y}`
+
+var s3 = `Sum of
+${x} and ${y}
+is ${x+y}`
+

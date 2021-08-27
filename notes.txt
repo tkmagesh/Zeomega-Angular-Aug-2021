@@ -80,8 +80,7 @@ var products = [
 3. Group the products by category
     products.reduce(
         (result, product) => {
-            result[product.category] = result[product.category] || [];
-            result[product.category].push(product);
+            (result[product.category] = result[product.category] || []).push(product);
             return result;
         },
         {}
@@ -100,3 +99,105 @@ Step : 3
     underscore
     lodash
 
+
+Class
+class Employee{
+    id = 0;
+    name = '';
+    salary = 0;
+    
+    constructor(id, name, salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    display(){
+        console.log(this.id, this.name, this.salary);
+    }
+}
+
+var emp = new Employee(100, 'Magesh', 10000)
+
+ES5
+/*
+function Employee(id, name, salary){
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+    this.display = function(){
+        console.log(this.id, this.name, this.salary);
+    }
+}
+*/
+
+function Employee(id, name, salary){
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+}
+Employee.prototype.display = function(){
+    console.log(this.id, this.name, this.salary);
+}
+
+//class with private attributes & getters and setters
+
+class Employee{
+    #id = 0;
+    #name = '';
+    #salary = 0;
+
+    get id(){
+        //console.log('getter for id triggered')
+        return this.#id;
+    }
+    set id(value){
+        //console.log('setter for id triggered')
+        //do validations
+        this.#id = value;
+    }
+
+    get name(){
+        //console.log('getter for name triggered')
+        return this.#name;
+    }
+    set name(value){
+        //console.log('setter for name triggered')
+        this.#name = value;
+    }
+
+    get salary(){
+        //console.log('getter for salary triggered')
+        return this.#salary;
+    }
+    set salary(value){
+        //console.log('setter for salary triggered')
+        this.#salary = value;
+    }
+
+    constructor(id, name, salary){
+        this.#id = id;
+        this.#name = name;
+        this.#salary = salary;
+    }
+
+    display(){
+        console.log(this.#id, this.#name, this.#salary);
+    }
+}
+
+//class Inheritance
+
+class FulltimeEmployee extends Employee{
+    benefits = '';
+    constructor(id, name, salary, benefits){
+        super(id, name, salary);
+        this.benefits = benefits;
+    }
+
+    display(){
+        super.display();
+        console.log(this.benefits);
+    }
+
+}

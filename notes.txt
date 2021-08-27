@@ -201,3 +201,48 @@ class FulltimeEmployee extends Employee{
     }
 
 }
+
+
+//iterators
+var nos = [3,1,4,2,5]
+
+for (let idx=0; idx < nos.length; idx++){
+    console.log(nos[idx]);
+}
+
+for (let no of nos){
+    console.log(no)
+}
+
+//custom iterators
+function getFibonacci(count){
+    let fibonacci = {
+        [Symbol.iterator](){
+            let prev = 0, curr = 1;
+            let counter = 0;
+            return {
+                next(){
+                    if (counter > count){
+                        return { value : undefined, done : true }
+                    } else {
+                        [prev, curr, counter] = [curr, prev + curr, counter+1]
+                        return { value : curr, done : false }
+                    }
+                }
+            }
+        }
+    }
+    return fibonacci;
+}
+
+let fibonacci = getFibonacci(10)
+
+//iterating using for..of construct
+for (let fibNo of fibonacci){
+    console.log(fibNo)
+}
+
+//iterating manually
+let iter = fibonacci[Symbol.iterator]();
+iter.next();
+iter.next();

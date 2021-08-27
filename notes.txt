@@ -38,6 +38,7 @@ ES6 (ECMAScript 6 / ES2015 / ESNext)
 8. spread operator (object)
 9. default arguments
 10. arrow functions
+11. object construction enhancement
 
 
 ES5
@@ -71,14 +72,31 @@ var products = [
 ];
 
 1. Find the costliest product 
+    products.reduce((result, product) => result.cost > product.cost ? result : product)
+
 2. Find the product that has the least stock
+    products.reduce((result, product) => result.units < product.units ? result : product)
+
 3. Group the products by category
-    {
-        'stationary' : [
-            {id : 6, name : 'Pen', cost : 50, units : 20, category : 'stationary'}, 
-            {id : 9, name : 'Ten', cost : 70, units : 70, category : 'stationoary'}
-        ],
-        'grocery' : [
-            {id : 3, name : 'Len', cost : 60, units : 60},
-            ......
-    }
+    products.reduce(
+        (result, product) => {
+            result[product.category] = result[product.category] || [];
+            result[product.category].push(product);
+            return result;
+        },
+        {}
+    )
+
+Step: 1
+    1. filter
+    2. forEach
+    3. reduce
+    4. map
+
+Step : 2    
+    Functional Programming
+
+Step : 3
+    underscore
+    lodash
+

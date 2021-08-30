@@ -27,8 +27,10 @@ console.log(add(1000,2000));
 //importing the default exported entity from the module
 
 
-/* import isOdd from './calculator';
-console.log(isOdd(10)); */
+/* 
+import isOdd from './calculator';
+console.log(isOdd(10)); 
+*/
 
 import utils from './calculator'
 console.log(utils.isOdd(100));

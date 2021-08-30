@@ -424,4 +424,6 @@ ES6 Modules
     - Anything that need to be made public have to be explicitly "exported"
     - If any public entity from another file is needed, they have to be explicitly "imported"
 
-    
+To create a component
+    ng generate component <component-name>
+    ng g c <component-name>

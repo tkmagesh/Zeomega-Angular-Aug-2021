@@ -427,3 +427,16 @@ ES6 Modules
 To create a component
     ng generate component <component-name>
     ng g c <component-name>
+
+
+Implement the calculator component for the following
+<h3>Calculator</h3>
+<hr>
+<input type="number" name="" id="">
+<input type="number" name="" id="">
+<br>
+<input type="button" value="Add">
+<input type="button" value="Subtract">
+<input type="button" value="Multiply">
+<input type="button" value="Divide">
+<div></div>

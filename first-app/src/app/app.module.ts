@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -15,7 +15,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
   ],
   /* All the dependent modules are registered here */
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   /* All services are registered */
   providers: [],

@@ -3,8 +3,13 @@
 <!-- <input type="number" #txtN1 (input)="setN1(txtN1.value)"  >
 <input type="number" #txtN2 (input)="setN2(txtN2.value)" > -->
 
+<!-- 
 <input type="number"  (input)="setN1($any($event.target).value)">
-<input type="number"  (input)="setN2($any($event.target).value)">
+<input type="number"  (input)="setN2($any($event.target).value)"> 
+-->
+
+<input type="number" [(ngModel)]="n1">
+<input type="number" [(ngModel)]="n2">
 <br>
 <input type="button" value="Add" (click)="onAddClick()">
 <input type="button" value="Subtract" (click)="onSubtractClick()">

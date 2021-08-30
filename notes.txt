@@ -377,3 +377,4 @@ Maintainability
     Easy Maintainability means easy to change code
 
 
+Reactive (Dumb) X Proactive (Knowledge)

@@ -306,3 +306,74 @@ var s3 = `Sum of
 ${x} and ${y}
 is ${x+y}`
 
+
+
+TypeScript = TypeSafety + JavaScript
+    superset of javascript
+
+
+var x;
+x = 10;
+x = "hello";
+x = true
+x = {}
+
+function add(x,y){
+    if (typeof x !== 'number' || typeof y !== 'number')
+        throw new Error('Invalid arguments');
+    return x + y;
+}
+
+
+add(10,20)
+add("safd", "dsafs")
+
+
+var x : number
+
+function add(x : number, y : number) : number {
+    return x + y
+}
+
+add("dasfs", "asdf")
+
+    |
+    |
+    V
+    tsc
+    |
+    |
+    V
+
+var x 
+
+function add(x , y )  {
+    return x + y
+}
+
+Enums
+Interfaces
+Classes
+Access Modifiers (private, public, protected)
+Modules
+Namespaces
+Generics
+
+
+Challenges in UI application
+    - Performance
+    - Maintainability
+    - Security
+
+Maintainability
+
+    - Fixing bugs
+    - Adding new features
+    - Improving existing features
+    - Removing dead features
+
+    - Changing existing code
+
+    Easy Maintainability means easy to change code
+
+

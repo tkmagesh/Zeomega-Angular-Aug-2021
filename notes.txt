@@ -378,3 +378,50 @@ Maintainability
 
 
 Reactive (Dumb) X Proactive (Knowledge)
+
+Angular Building Blocks
+
+    - Module
+        Registry of application entities (components, directives, pipes & services)
+        Dependency Injection
+        Minimum of 1 module should be there
+        A module acts as the application starting point
+
+    - Component
+        Encapsulation of Presentation + UI Behavior (user interaction) + State (data)
+        Can be composed to create complext components
+
+    - Directive
+        Responsible for dealing with DOM
+
+    - Pipe
+        Transforms data for presentation
+
+    - Service
+        Non UI logic
+
+
+Angular CLI
+    - CLI is a command line interface for Angular
+    - Installation
+        npm install @angular/cli -g
+
+    - To create an angular application
+        ng new <app-name>
+
+    - To run the application
+        cd <app-name>
+        npm start
+
+
+AMD
+CommonJS
+ES6 Modules
+
+
+ES6 Modules 
+    - Everything defined in a file is considered private
+    - Anything that need to be made public have to be explicitly "exported"
+    - If any public entity from another file is needed, they have to be explicitly "imported"
+
+    

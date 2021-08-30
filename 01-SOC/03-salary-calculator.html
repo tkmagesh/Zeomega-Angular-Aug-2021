@@ -56,13 +56,28 @@
 
         //View
         $(function(){
-            var model = new SalaryCalculatorModel();
+            
+            window['model'] = new SalaryCalculatorModel();
+
+            $('#txtBasic').change(function(){
+                model.basic = parseInt($(this).val());
+            });
+
+            $('#txtHra').change(function(){
+                model.hra = parseInt($(this).val());
+            });
+
+            $('#txtDa').change(function(){
+                model.da = parseInt($(this).val());
+            });
+
+            $('#rangeTax').change(function(){
+                model.tax = parseInt($(this).val());
+            });
+
+
             $('#btnCalculate').click(function(){
 
-                model.basic = parseInt($('#txtBasic').val());
-                model.hra = parseInt($('#txtHra').val());
-                model.da = parseInt($('#txtDa').val());
-                model.tax = parseInt($('#rangeTax').val());
 
                 model.calculate();
 

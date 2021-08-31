@@ -1,5 +1,12 @@
-<button (click)="changeTitle()">Change Title</button>
-<div>
-<span>{{ title }} app is running!</span>
+<input type="button" value="Products" (click)="userChoice='products'">
+<input type="button" value="Greeter" (click)="userChoice='greeter'">
+<input type="button" value="Calculator" (click)="userChoice='calculator'">
+<input type="button" value="Salary Calculator" (click)="userChoice='salary-calculator'">
+
+
+<div [ngSwitch]="userChoice">
+    <app-products *ngSwitchCase="'products'"></app-products>
+    <app-greeter *ngSwitchCase="'greeter'"></app-greeter>
+    <app-calculator *ngSwitchCase="'calculator'"></app-calculator>
+    <app-salary-calculator *ngSwitchCase="'salary-calculator'"></app-salary-calculator>
 </div>
-<hr>

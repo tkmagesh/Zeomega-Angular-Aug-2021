@@ -33,11 +33,7 @@ import { ProductsComponent } from './products/products.component';
 
   /* The root component of the application */
   bootstrap: [
-    AppComponent, 
-    GreeterComponent,
-    CalculatorComponent,
-    SalaryCalculatorComponent,
-    ProductsComponent
+    AppComponent
   ],
 
 })

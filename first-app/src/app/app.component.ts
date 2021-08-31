@@ -10,15 +10,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   /* state */
-  title = 'first-app';
+  userChoice : string = '';
 
   constructor(){
-    /* setTimeout(() => {
-      this.title = 'My App'
-    }, 10000); */
+  
   }
 
-  changeTitle(){
-    this.title = 'My App';
-  }
+  
 }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { SalaryCalculatorComponent } from './salary-calculator/salary-calculator.component';
 
 @NgModule({
 
@@ -11,7 +12,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
   declarations: [
     AppComponent,
     GreeterComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    SalaryCalculatorComponent
   ],
   /* All the dependent modules are registered here */
   imports: [
@@ -25,7 +27,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
   bootstrap: [
     AppComponent, 
     GreeterComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    SalaryCalculatorComponent
   ],
 
 })

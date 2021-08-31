@@ -21,7 +21,7 @@
 <section class="list">
     <ol>
         <li *ngFor="let bug of bugs; index as idx">
-            <span class="bugname">{{bug}}</span>
+            <span class="bugname">{{bug | json}}</span>
             <div class="datetime">[created at]</div>
             <input type="button" value="Remove" (click)="onRemoveClick(idx)">
         </li>

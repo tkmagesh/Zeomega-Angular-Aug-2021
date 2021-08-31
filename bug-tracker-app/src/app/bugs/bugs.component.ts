@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Bug } from './models/bug.model';
 
 @Component({
   selector: 'app-bugs',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BugsComponent implements OnInit {
 
-  bugs : string[] = [];
+  private currentBugId : number = 0;
+
+  bugs : Bug[] = [];
 
   constructor() { }
 
@@ -15,7 +18,13 @@ export class BugsComponent implements OnInit {
   }
 
   onAddNewClick(newBugName : string) {
-    this.bugs.push(newBugName);
+    const newBug = {
+      id : ++this.currentBugId /* TO BE FIXED */,
+      name : newBugName,
+      isClosed : false,
+      createdAt : new Date()
+    }
+    this.bugs.push(newBug);
   }
 
   onRemoveClick(idx : number){

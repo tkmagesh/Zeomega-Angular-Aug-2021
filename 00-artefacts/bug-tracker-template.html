@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin-left: 50px;
+        }
+        section{
+            margin-bottom: 10px;
+        }
+        .stats, .bugname{
+            font-size: 18pt;
+        }
+        .closed{
+            color : red;
+            text-decoration: line-through;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .bugname{
+            cursor : pointer;
+        }
+        ol{
+            list-style: none;
+            width : 450px;
+            -webkit-padding-start: 0px;
+        }
+        li{
+            margin-bottom: 10px;
+            padding : 10px;
+            border: 1px solid gray;
+            background-color: #e7e7e7;
+            border-radius: 5px;
+        }
+        .datetime{
+            font-style: italic;
+        }
+
+    </style>
+    <title>Bug Tracker</title>
+    <!-- 
+        Use cases:
+            1. Add new bugs
+            2. List the added bugs
+            3. Toggle the 'closed' status of any bug
+            4. Remove any bug
+            5. Remove 'closed' bugs
+            6. Display stats (# of closed bugs / # of bugs)
+            7. Improvise bug display
+            8. Persist the bugs in the localStorage
+            9. Display 'createdAt' for each bug
+            10. Sort the bugs
+            11. Persist the bugs in the server
+            12. Search the bugs
+            13. Add validations to the bugs
+            14. Make the bugs accessible using unique urls
+            15. Write Tests
+            16. Package & Deployment
+     -->
+
+     <!-- 
+        TODO:
+            Creata a "BugsComponent"
+            Treat the bug as a string and implement Use cases 1, 2, & 4
+
+
+      -->
+</head>
+<body>
+    <!-- app.component.html -->
+    <h1>Bug Tracker</h1>
+    <hr>
+    <!-- bugs.component.html -->
+    <section class="stats">
+        <span class="closed">1</span>
+        <span> / </span>
+        <span>2</span>
+    </section>
+    <section class="sort"><label for="">Order By :</label>
+        <select name="" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        <label for="">Descending ? : </label>
+        <input type="checkbox" name="" id="">
+    </section>
+    <section class="edit">
+        <label for="">Bug Name :</label>
+        <input type="text" name="" id="">
+        <input type="button" value="Add New">
+    </section>
+    <section class="list">
+        <ol>
+            <li>
+                <span class="bugname">[Bug - 1]</span>
+                <div class="datetime">[created at]</div>
+                <input type="button" value="Remove">
+            </li>
+            <li>
+                <span class="bugname closed">[Bug - 2]</span>
+                <div class="datetime">[created at]</div>
+                <input type="button" value="Remove">
+            </li>
+        </ol>
+        <input type="button" value="Remove Closed">
+    </section>
+</body>
+</html>

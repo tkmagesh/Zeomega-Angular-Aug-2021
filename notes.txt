@@ -393,6 +393,16 @@ Angular Building Blocks
 
     - Directive
         Responsible for dealing with DOM
+        Two types of directives
+            - attribute directives
+                Manipulates the attributes of existing DOM nodes
+                DOES NOT change the structure of the DOM tree  (adding new DOM nodes or removing existing DOM nodes)
+                enclosed with '[]'
+
+            - structural directives
+                Manipulates the structure of the DOM tree
+                Changes the structure of the DOM tree  (adding new DOM nodes or removing existing DOM nodes)
+                prefixed with an '*'
 
     - Pipe
         Transforms data for presentation

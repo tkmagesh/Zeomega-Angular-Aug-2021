@@ -7,6 +7,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { SalaryCalculatorComponent } from './salary-calculator/salary-calculator.component';
 import { SalaryCalculatorModel } from './salary-calculator/salary-calculator.model';
 import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v2.model';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
 
@@ -15,7 +16,8 @@ import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v
     AppComponent,
     GreeterComponent,
     CalculatorComponent,
-    SalaryCalculatorComponent
+    SalaryCalculatorComponent,
+    ProductsComponent
   ],
   /* All the dependent modules are registered here */
   imports: [
@@ -34,7 +36,8 @@ import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v
     AppComponent, 
     GreeterComponent,
     CalculatorComponent,
-    SalaryCalculatorComponent
+    SalaryCalculatorComponent,
+    ProductsComponent
   ],
 
 })

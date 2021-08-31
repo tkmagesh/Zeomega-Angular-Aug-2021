@@ -24,7 +24,8 @@ import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v
   ],
   /* All services are registered */
   providers: [
-    { provide: SalaryCalculatorModel, useClass: SalaryCalculatorModelV2 }
+    /* { provide: SalaryCalculatorModel, useClass: SalaryCalculatorModel } */
+    SalaryCalculatorModel
   ],
 
   /* The root component of the application */

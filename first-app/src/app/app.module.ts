@@ -26,6 +26,7 @@ import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v
   providers: [
     /* { provide: SalaryCalculatorModel, useClass: SalaryCalculatorModel } */
     SalaryCalculatorModel
+    /* { provide: SalaryCalculatorModel, useValue: new SalaryCalculatorModel()} */
   ],
 
   /* The root component of the application */

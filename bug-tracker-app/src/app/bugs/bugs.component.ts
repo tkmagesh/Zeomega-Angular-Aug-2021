@@ -31,4 +31,18 @@ export class BugsComponent implements OnInit {
     this.bugs.splice(idx, 1);
   }
 
+  onBugNameClick(bug : Bug){
+    bug.isClosed = !bug.isClosed;
+  }
+
+  onRemoveClosedClick(){
+    this.bugs = this.bugs.filter(bug => !bug.isClosed);
+  }
+
+  /* TO BE FIXED */
+  getClosedCount() : number {
+    return this.bugs.reduce((result, bug) => bug.isClosed ? result + 1: result, 0);
+  }
+
 }
+ 

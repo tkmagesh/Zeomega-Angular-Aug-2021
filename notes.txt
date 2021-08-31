@@ -444,3 +444,35 @@ Implement the calculator component for the following
 Assignment
 ==========
 implement salary calculator in the "first-app" application
+
+
+Open Closed Principle
+    Your code should be OPEN for extension and CLOSED for modification
+
+
+
+class PriceCalculator{
+    calculate(products) {
+        return products.reduce((total, product) => total + product.price, 0);
+    }
+}
+
+class FestivePriceCalculator{
+    calculate(products) {
+        return products.reduce((total, product) => total + product.price, 0) * 0.9;
+    }
+}
+
+
+class ShoppingCart{
+    products ;
+
+    constructor(pc PriceCalculator){
+        this.pc = pc;
+    }
+
+    cartValue(){
+        return this.pc.calculate(this.products)
+    }
+}
+

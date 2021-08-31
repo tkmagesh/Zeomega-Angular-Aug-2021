@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SalaryCalculatorComponent } from './salary-calculator/salary-calculator.component';
+import { SalaryCalculatorModel } from './salary-calculator/salary-calculator.model';
+import { SalaryCalculatorModelV2 } from './salary-calculator/salary-calculator-v2.model';
 
 @NgModule({
 
@@ -21,7 +23,9 @@ import { SalaryCalculatorComponent } from './salary-calculator/salary-calculator
     FormsModule
   ],
   /* All services are registered */
-  providers: [],
+  providers: [
+    { provide: SalaryCalculatorModel, useClass: SalaryCalculatorModelV2 }
+  ],
 
   /* The root component of the application */
   bootstrap: [

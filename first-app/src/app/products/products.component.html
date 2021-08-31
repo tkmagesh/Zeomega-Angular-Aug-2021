@@ -1,14 +1,14 @@
 <h3>Products</h3>
 <hr>
 <label for="">Product Name :</label>
-<input type="text" name="" id="">
-<input type="button" value="Add New">
+<input type="text" #txtProductName>
+<input type="button" value="Add New" (click)="onAddNewClick(txtProductName.value)">
 <ul>
-    <li *ngFor="let productName of productNames">
+    <li *ngFor="let productName of productNames; index as idx">
         <span>
             {{productName}}
         </span>
         - 
-        <input type="button" value="Remove" />
+        <input type="button" value="Remove" (click)="onRemoveClick(idx)" />
     </li>
 </ul>

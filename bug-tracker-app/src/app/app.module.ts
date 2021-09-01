@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BugsComponent } from './bugs/bugs.component';
 import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
 import { BugOperationsService } from './bugs/services/bugOperartions.service';
+import { BugStorageService } from './bugs/services/bugStorage.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { BugOperationsService } from './bugs/services/bugOperartions.service';
     BrowserModule
   ],
   providers: [
-    BugOperationsService
+   /* 
+    BugOperationsService,
+    BugStorageService 
+    */
   ],
   bootstrap: [AppComponent]
 })

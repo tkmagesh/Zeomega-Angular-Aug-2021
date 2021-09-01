@@ -27,7 +27,7 @@
                 {{bug.name | trimtext:40}}
             </span>
             <div class="datetime">[created at]</div>
-            <input type="button" value="Remove" (click)="onRemoveClick(idx)">
+            <input type="button" value="Remove" (click)="onRemoveClick(bug)">
         </li>
     </ol>
     <input type="button" value="Remove Closed" (click)="onRemoveClosedClick()">

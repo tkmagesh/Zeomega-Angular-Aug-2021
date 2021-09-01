@@ -490,3 +490,8 @@ To install moment.js
 npm install moment
 
 How to use the moment library (refer to the main.ts)
+
+
+Pure Functions
+    Functions without side effects
+    When the Function invocation is replaced with the result of a function, the outcome should not change

@@ -9,9 +9,10 @@ import { BugOperationsService } from './services/bugOperartions.service';
 })
 export class BugsComponent implements OnInit {
 
- 
-
   bugs : Bug[] = [];
+  sortAttrName : string = '';
+  sortByDesc : boolean = false;
+  newBugName : string = '';
 
   constructor(private bugOperations : BugOperationsService) { }
 
@@ -19,9 +20,10 @@ export class BugsComponent implements OnInit {
     this.bugs = this.bugOperations.getAll();
   }
 
-  onAddNewClick(newBugName : string) {
-    const newBug = this.bugOperations.createNew(newBugName);
-    this.bugs.push(newBug);
+  onAddNewClick() {
+    const newBug = this.bugOperations.createNew(this.newBugName);
+    //this.bugs.push(newBug);
+    this.bugs = [...this.bugs, newBug];
   }
 
   onRemoveClick(bug : Bug){

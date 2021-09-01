@@ -4,7 +4,7 @@
     <span>{{bugs.length}}</span>
 </section>
 <section class="sort"><label for="">Order By :</label>
-    <select name="" id="">
+    <select [(ngModel)]="sortAttrName">
         <option value="">-----Select-----</option>
         <option value="id">Id</option>
         <option value="name">Name</option>
@@ -12,16 +12,17 @@
         <option value="createdAt">Created</option>
     </select>
     <label for="">Descending ? : </label>
-    <input type="checkbox" name="" id="">
+    <input type="checkbox" [(ngModel)]="sortByDesc">
 </section>
 <section class="edit">
     <label for="">Bug Name :</label>
-    <input type="text" #txtNewBugName>
-    <input type="button" value="Add New" (click)="onAddNewClick(txtNewBugName.value)">
+    <input type="text" [(ngModel)]="newBugName"> 
+    <span> [ {{newBugName.length}} ] </span>
+    <input type="button" value="Add New" (click)="onAddNewClick()">
 </section>
 <section class="list">
     <ol>
-        <li *ngFor="let bug of bugs; index as idx">
+        <li *ngFor="let bug of ( bugs | sort:sortAttrName:sortByDesc ) ; index as idx">
             <span 
                 [ngClass]="{closed : bug.isClosed}"
                 class="bugname" (click)="onBugNameClick(bug)">

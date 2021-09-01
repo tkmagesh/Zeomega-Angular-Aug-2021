@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BugsComponent } from './bugs/bugs.component';
 import { ElapsedPipe } from './bugs/pipes/elapsed.pipe';
+import { SortPipe } from './bugs/pipes/sort.pipe';
 import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
 import { BugOperationsService } from './bugs/services/bugOperartions.service';
 import { BugStorageService } from './bugs/services/bugStorage.service';
@@ -13,10 +15,12 @@ import { BugStorageService } from './bugs/services/bugStorage.service';
     AppComponent,
     BugsComponent,
     TrimTextPipe,
-    ElapsedPipe
+    ElapsedPipe,
+    SortPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
    /* 

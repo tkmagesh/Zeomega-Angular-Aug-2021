@@ -6,7 +6,6 @@ import { Bug } from '../models/bug.model';
 })
 export class ClosedCountPipe  implements PipeTransform {
   transform(bugs: Bug[]): number {
-    console.log('closedCount transform triggered')
     return bugs.filter(bug => bug.isClosed).length;
   }
 }

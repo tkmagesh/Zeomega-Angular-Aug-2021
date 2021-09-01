@@ -30,13 +30,14 @@ export class BugsComponent implements OnInit {
     this.remove(bug);
   }
 
-  private remove(bug : Bug){
-    this.bugOperations.remove(bug);
-    this.bugs.splice(this.bugs.indexOf(bug), 1);
+  private remove(bugToRemove : Bug){
+    this.bugOperations.remove(bugToRemove);
+    this.bugs = this.bugs.filter(bug => bug.id !== bugToRemove.id)
   }
 
   onBugNameClick(bug : Bug){
-    this.bugOperations.toggle(bug);
+    const toggledBug = this.bugOperations.toggle(bug);
+    this.bugs = this.bugs.map(bug => bug.id === toggledBug.id ? toggledBug : bug);
   }
 
   onRemoveClosedClick(){

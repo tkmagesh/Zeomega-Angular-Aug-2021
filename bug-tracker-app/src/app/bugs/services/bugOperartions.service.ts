@@ -27,9 +27,11 @@ export class BugOperationsService{
         return newBug;
     }
 
-    toggle(bug : Bug) {
-        bug.isClosed = !bug.isClosed;
-        this.bugStorage.save(bug);
+    toggle(bug : Bug) : Bug {
+        //bug.isClosed = !bug.isClosed;
+        const toggledBug = { ...bug, isClosed : !bug.isClosed}
+        this.bugStorage.save(toggledBug);
+        return toggledBug;
     }
 
     remove(bug : Bug){

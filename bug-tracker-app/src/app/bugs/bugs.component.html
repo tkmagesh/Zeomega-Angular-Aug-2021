@@ -5,10 +5,11 @@
 </section>
 <section class="sort"><label for="">Order By :</label>
     <select name="" id="">
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
+        <option value="">-----Select-----</option>
+        <option value="id">Id</option>
+        <option value="name">Name</option>
+        <option value="isClosed">Status</option>
+        <option value="createdAt">Created</option>
     </select>
     <label for="">Descending ? : </label>
     <input type="checkbox" name="" id="">
@@ -26,7 +27,9 @@
                 class="bugname" (click)="onBugNameClick(bug)">
                 {{bug.name | trimtext:40}}
             </span>
-            <div class="datetime">[created at]</div>
+            <div class="datetime" [title]="bug.createdAt">
+                [{{bug.createdAt | elapsed}}]
+            </div>
             <input type="button" value="Remove" (click)="onRemoveClick(bug)">
         </li>
     </ol>

@@ -486,3 +486,7 @@ class ShoppingCart{
     }
 }
 
+To install moment.js
+npm install moment
+
+How to use the moment library (refer to the main.ts)

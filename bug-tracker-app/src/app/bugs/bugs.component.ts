@@ -13,7 +13,7 @@ export class BugsComponent implements OnInit {
   bugs : Bug[] = [];
   sortAttrName : string = '';
   sortByDesc : boolean = false;
-  newBugName : string = '';
+  
 
   constructor(private bugOperations : BugOperationsService) { }
 
@@ -21,14 +21,12 @@ export class BugsComponent implements OnInit {
     this.bugs = this.bugOperations.getAll();
   }
 
-  onAddNewClick() {
-    const newBug = this.bugOperations.createNew(this.newBugName);
-    //state mutation
-    //this.bugs.push(newBug);
-    
+  //subscription to the child (bug-edit) component
+  onBugCreated(newBug : Bug){
     // immutable state
     this.bugs = [...this.bugs, newBug];
   }
+  
 
   onRemoveClick(bug : Bug){
     this.remove(bug);

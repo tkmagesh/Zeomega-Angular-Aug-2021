@@ -21,6 +21,7 @@ import { BugStorageService } from './bugs/services/bugStorage.service';
     BugOperationsService,
     BugStorageService 
     */
+    {provide : 'STORAGE', useValue : window.localStorage}
   ],
   bootstrap: [AppComponent]
 })

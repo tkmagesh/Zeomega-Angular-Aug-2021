@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Bug } from "../models/bug.model";
 
 @Injectable({
@@ -7,7 +7,12 @@ import { Bug } from "../models/bug.model";
 export class BugStorageService{
     private slug : string = 'bug'
     private currentBugId : number = 0;
-    private storage : Storage = window.localStorage;
+    
+    //private storage : Storage = window.localStorage
+    
+    constructor(@Inject('STORAGE') private storage : Storage){
+
+    }
 
     private createKey(id : number) : string {
         return `${this.slug}-${id}`

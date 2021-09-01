@@ -7,8 +7,7 @@ import { BugsComponent } from './bugs/bugs.component';
 import { ElapsedPipe } from './bugs/pipes/elapsed.pipe';
 import { SortPipe } from './bugs/pipes/sort.pipe';
 import { TrimTextPipe } from './bugs/pipes/trimText.pipe';
-import { BugOperationsService } from './bugs/services/bugOperartions.service';
-import { BugStorageService } from './bugs/services/bugStorage.service';
+import { ClosedCountPipe } from './bugs/pipes/closedCount.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { BugStorageService } from './bugs/services/bugStorage.service';
     BugsComponent,
     TrimTextPipe,
     ElapsedPipe,
-    SortPipe
+    SortPipe,
+    ClosedCountPipe
   ],
   imports: [
     BrowserModule,

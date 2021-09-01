@@ -23,7 +23,10 @@ export class BugsComponent implements OnInit {
 
   onAddNewClick() {
     const newBug = this.bugOperations.createNew(this.newBugName);
+    //state mutation
     //this.bugs.push(newBug);
+    
+    // immutable state
     this.bugs = [...this.bugs, newBug];
   }
 

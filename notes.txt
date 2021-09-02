@@ -514,3 +514,51 @@ Async Programming in JavaScript
     Async Operation
         An operation that is initiated but not waited for its completion
 
+    1. callbacks
+    2. Promises (singular)
+    3. Async/Await
+    4. Observables (stream)
+
+Observable X Enumerable (aka Generator)
+    Enumerable = Iterable + lazy Evaluation
+
+
+Event Driven Applications
+    Execution flow is determined by events (user actions etc)
+
+Employee.dat
+    id, name, address, dob, salary, doj
+
+Write a program that will calculate the average salary of all the employees
+
+Pseudocode
+    let empCount, sumOfSalary
+    Open the file
+    while not eof
+        read the line
+        parse the line
+        empCount += 1
+        sumOfSalary += salary
+    
+    avg = sumOfSalary / empCount
+    print avg
+    close the file
+    exit(0)
+
+
+
+Rxjs
+    Observables
+
+
+Web Browser
+    - User actions      (stream)
+    - Ajax requests     (singlular)
+    - Timers            (stream)
+    - Server Sent Events (stream)
+    - Web Sockets       (stream)
+
+
+To create a restful server
+    run the following command from the folder that has the db.json file
+        npx json-server db.json

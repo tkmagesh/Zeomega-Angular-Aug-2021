@@ -1,0 +1,32 @@
+{
+  "bugs": [
+    {
+      "id": 1,
+      "name": "Data integrity checks failed",
+      "isClosed": true,
+      "createdAt": "2019-09-27T06:34:45.852Z"
+    },
+    {
+      "id": 2,
+      "name": "Server communication failure",
+      "createdAt": "2020-11-26T11:17:31.342Z",
+      "isClosed": false
+    },
+    {
+      "id": 4,
+      "name": "User actions not recognized",
+      "isClosed": true,
+      "createdAt": "2021-08-17T23:37:21.829Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Project Management"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQ Demo</title>
+    <script>
+
+        function doWork(workCompleted, workProgress){
+            var taskCount = 1000,
+                currentTask = 0;
+            function subTask(){
+                for(var i=0; i< (10000/taskCount); i++)
+                    for(var j=0; j<10000; j++)
+                        for(var k=0; k<300; k++){
+
+                        }
+                ++currentTask;
+                if (currentTask % 10 === 0){
+                    var percentCompleted = (currentTask/taskCount) * 100;
+                    workProgress(percentCompleted)
+                }
+                if (currentTask < taskCount){
+                    setTimeout(subTask)
+                } else {
+                    workCompleted();
+                }
+            }
+
+            setTimeout(subTask);
+        }
+        function displayMessage(msg){
+            document.getElementById('divMessages').innerHTML += msg + '<br/>'
+        }
+        function onBtnDoWorkClick(){
+            displayMessage('Work Started'); 
+            doWork(onWorkCompletion, onWorkProgress);
+        }
+
+        function onWorkCompletion(){
+            displayMessage('Work Completed!');
+        }
+
+        function onWorkProgress(percentCompleted){
+            document.getElementById('workProgress').value = percentCompleted;
+        }
+        function onDocumentLoad(){
+            var btnDoWork = document.getElementById('btnDoWork');
+            btnDoWork.addEventListener('click', onBtnDoWorkClick);
+        }
+        window.addEventListener('load', onDocumentLoad);
+
+    </script>
+</head>
+<body>
+    <h1>Scheduler</h1>
+    <hr>
+    <input type="text" name="" id="">
+    <input type="button" value="Do Work" id="btnDoWork">
+    <div>
+        <progress id="workProgress" min="0" max="100" value="0"></progress>
+    </div>
+    <div id="divMessages"></div>
+</body>
+</html>

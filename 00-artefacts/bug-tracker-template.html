@@ -76,6 +76,13 @@
             (done) 10. Sort the bugs
             (done) 11. Persist the bugs in the server
             12. Search the bugs
+                Donot make server calls for each character entered. 
+                Instead make the server call only when the user has NOT typed anything for 1 second.
+                    (HINT : Use the 'debounce' operator in rxjs)
+                Do not initiate a new server call when another server call is in progress.
+                    If a server call is in progress and the user has typed a letter then the old server call need to be cancelled and then a new server call need to be made
+
+
             13. Add validations to the bugs
             14. Make the bugs accessible using unique urls
             15. Write Tests

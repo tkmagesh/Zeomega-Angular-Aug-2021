@@ -11,7 +11,10 @@
     <input type="checkbox" [(ngModel)]="sortByDesc">
 </section>
 <app-bug-edit (created)="onBugCreated($event)"></app-bug-edit>
+
 <section class="list">
+    <label> Search : </label>
+    <input type="textbox" />
     <ol>
         <li *ngFor="let bug of ( bugs | sort:sortAttrName:sortByDesc ) ; index as idx">
             <span 

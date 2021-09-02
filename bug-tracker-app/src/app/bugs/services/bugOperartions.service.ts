@@ -11,8 +11,7 @@ export class BugOperationsService{
     
 
     constructor(
-        private bugStorage : BugStorageService,
-        private bugApi : BugApiService,
+        private bugApi : BugApiService
     ){
 
     }
@@ -22,26 +21,24 @@ export class BugOperationsService{
         return this.bugApi.getAll();
     }
     
-    createNew(bugName : string) : Bug {
+    createNew(bugName : string) : Observable<Bug> {
          const newBug = {
             id : 0,
             name : bugName,
             isClosed : false,
             createdAt : new Date()
         }
-        this.bugStorage.save(newBug);
-        return newBug;
+        return this.bugApi.save(newBug);
     }
 
-    toggle(bug : Bug) : Bug {
+    toggle(bug : Bug) : Observable<Bug> {
         //bug.isClosed = !bug.isClosed;
         const toggledBug = { ...bug, isClosed : !bug.isClosed}
-        this.bugStorage.save(toggledBug);
-        return toggledBug;
+        return this.bugApi.save(toggledBug);
     }
 
-    remove(bug : Bug){
-        this.bugStorage.remove(bug);
+    remove(bug : Bug) : Observable<any> {
+        return this.bugApi.remove(bug);
     }
 }
     

@@ -38,24 +38,22 @@ export class BugsComponent implements OnInit {
   }
 
   private remove(bugToRemove : Bug){
-    this.bugOperations.remove(bugToRemove);
-    this.bugs = this.bugs.filter(bug => bug.id !== bugToRemove.id)
+    this.bugOperations
+      .remove(bugToRemove)
+      .subscribe(() => this.bugs = this.bugs.filter(bug => bug.id !== bugToRemove.id))
+    
   }
 
   onBugNameClick(bug : Bug){
-    const toggledBug = this.bugOperations.toggle(bug);
-    this.bugs = this.bugs.map(bug => bug.id === toggledBug.id ? toggledBug : bug);
+    this.bugOperations
+      .toggle(bug)
+      .subscribe(toggledBug => this.bugs = this.bugs.map(bug => bug.id === toggledBug.id ? toggledBug : bug));
+    
   }
 
   onRemoveClosedClick(){
     const closedBugs = this.bugs.filter(bug => bug.isClosed)
     closedBugs.forEach(closedBug => this.remove(closedBug));
-  }
-
-  /* TO BE FIXED */
-  getClosedCount() : number {
-    console.log('getClosedCount triggered');
-    return this.bugs.reduce((result, bug) => bug.isClosed ? result + 1: result, 0);
   }
 
 }

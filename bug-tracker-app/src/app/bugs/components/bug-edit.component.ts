@@ -25,13 +25,14 @@ export class BugEditComponent{
     }
 
     onAddNewClick() {
-    const newBug = this.bugOperations.createNew(this.newBugName);
+    //const newBug = this.bugOperations.createNew(this.newBugName);
     //state mutation
     //this.bugs.push(newBug);
 
     // immutable state
     //this.bugs = [...this.bugs, newBug];
-
-    this.created.emit(newBug);
+    this.bugOperations
+        .createNew(this.newBugName)
+        .subscribe(newBug => this.created.emit(newBug));
   }
 }

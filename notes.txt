@@ -39,7 +39,8 @@ ES6 (ECMAScript 6 / ES2015 / ESNext)
 9. default arguments
 10. arrow functions
 11. object construction enhancement
-
+12. Promise
+13. Async Await
 
 ES5
 function addEven(){
@@ -507,3 +508,9 @@ Pure Functions
     }
 
     isPrime(97)
+
+
+Async Programming in JavaScript
+    Async Operation
+        An operation that is initiated but not waited for its completion
+

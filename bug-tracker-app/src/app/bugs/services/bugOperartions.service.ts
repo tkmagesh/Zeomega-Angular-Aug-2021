@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { Bug } from "../models/bug.model";
+import { BugApiService } from "./bugApi.service";
 import { BugStorageService } from "./bugStorage.service";
 
 @Injectable({
@@ -8,12 +10,16 @@ import { BugStorageService } from "./bugStorage.service";
 export class BugOperationsService{
     
 
-    constructor(private bugStorage : BugStorageService){
+    constructor(
+        private bugStorage : BugStorageService,
+        private bugApi : BugApiService,
+    ){
 
     }
 
-    getAll() : Bug[]{
-        return this.bugStorage.getAll();
+    getAll() : Observable<Bug[]>{
+        //return this.bugStorage.getAll();
+        return this.bugApi.getAll();
     }
     
     createNew(bugName : string) : Bug {

@@ -6,7 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RxJS - demo</title>
     <script src="https://unpkg.com/rxjs@7.3.0/dist/bundles/rxjs.umd.min.js"></script>
-    
+    <script>
+        var subscriber = rxjs.Observable.create(observer => {
+            console.log(observer)
+            observer.next(10);
+            observer.next(20);
+            observer.next(30);
+            observer.complete();
+        });
+
+        subscriber.subscribe(
+            no => console.log(no),
+            e => console.log(e),
+            () => console.log('completed')
+        );
+    </script>
 </head>
 <body>
     

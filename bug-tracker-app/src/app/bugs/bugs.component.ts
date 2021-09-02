@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/bug.model';
 import { BugOperationsService } from './services/bugOperartions.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-bugs',
@@ -15,10 +16,14 @@ export class BugsComponent implements OnInit {
   sortByDesc : boolean = false;
   
 
-  constructor(private bugOperations : BugOperationsService) { }
+  constructor(
+    private bugOperations : BugOperationsService
+  ) { }
 
   ngOnInit(): void {
-    this.bugs = this.bugOperations.getAll();
+    this.bugOperations
+      .getAll()
+      .subscribe(bugs => this.bugs = bugs);
   }
 
   //subscription to the child (bug-edit) component

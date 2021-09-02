@@ -562,3 +562,29 @@ Web Browser
 To create a restful server
     run the following command from the folder that has the db.json file
         npx json-server db.json
+
+
+import { HttpClientModule } from '@angular/common/http';
+regiter the HttpClientModule in app.module
+
+
+To get all the bugs
+    this.httpClient
+        .get<Bug[]>('http://localhost:3000/bugs')
+        .subscribe(bugs => console.table(bugs))
+
+
+For creating a new bug
+    this.httpClient
+        .post<Bug>('http://localhost:3000/bugs', bugData)
+        .subscribe(newBug => console.log(newBug)
+
+For updating a bug
+    this.httpClient
+        .put<Bug>('http://localhost:3000/bugs/' + bug.id, bugData)
+        .subscribe(updatedBug => console.log(updatedBug))
+
+For removing a bug
+    this.httpClient
+        .delete<Bug>('http://localhost:3000/bugs/' + bug.id)
+        .subscribe(() => console.log('Bug ' + bug.id + ' deleted'))

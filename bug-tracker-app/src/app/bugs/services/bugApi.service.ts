@@ -18,6 +18,11 @@ export class BugApiService{
             .get<Bug[]>(this.serviceEndPoint);
     }
 
+    getById(id : string) : Observable<Bug>{
+        return this.httpClient
+            .get<Bug>(`${this.serviceEndPoint}/${id}`);
+    }
+
     save(bugData : Bug) : Observable<Bug>{
         if (bugData.id === 0){
             return this.httpClient

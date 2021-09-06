@@ -1,3 +1,6 @@
+<div>
+    <a [routerLink]="['/add']">Create New</a>
+</div>
 <app-bug-stats [data]="bugs"></app-bug-stats>
 <section class="sort"><label for="">Order By :</label>
     <select [(ngModel)]="sortAttrName">
@@ -10,7 +13,7 @@
     <label for="">Descending ? : </label>
     <input type="checkbox" [(ngModel)]="sortByDesc">
 </section>
-<app-bug-edit (created)="onBugCreated($event)"></app-bug-edit>
+<!-- <app-bug-edit (created)="onBugCreated($event)"></app-bug-edit> -->
 
 <section class="list">
     <label> Search : </label>
@@ -26,6 +29,9 @@
                 [{{bug.createdAt | elapsed}}]
             </div>
             <input type="button" value="Remove" (click)="onRemoveClick(bug)">
+            <div>
+                <a [routerLink]="['/details', bug.id]">Details...</a>
+            </div>
         </li>
     </ol>
     <input type="button" value="Remove Closed" (click)="onRemoveClosedClick()">

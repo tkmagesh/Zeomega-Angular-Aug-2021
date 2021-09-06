@@ -20,6 +20,10 @@ export class BugOperationsService{
         //return this.bugStorage.getAll();
         return this.bugApi.getAll();
     }
+
+    getById(id : string) : Observable<Bug>{
+        return this.bugApi.getById(id);
+    }
     
     createNew(bugName : string) : Observable<Bug> {
          const newBug = {

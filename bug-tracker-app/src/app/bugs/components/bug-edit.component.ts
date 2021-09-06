@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
+import { Router } from "@angular/router";
 import { Bug } from "../models/bug.model";
 import { BugOperationsService } from "../services/bugOperartions.service";
 
@@ -20,7 +21,10 @@ export class BugEditComponent{
     @Output()
     created : EventEmitter<Bug> = new EventEmitter<Bug>();
     
-    constructor(private bugOperations : BugOperationsService){
+    constructor(
+        private bugOperations : BugOperationsService,
+        private router : Router,
+    ){
 
     }
 
@@ -31,8 +35,16 @@ export class BugEditComponent{
 
     // immutable state
     //this.bugs = [...this.bugs, newBug];
+    /* 
     this.bugOperations
         .createNew(this.newBugName)
-        .subscribe(newBug => this.created.emit(newBug));
+        .subscribe(newBug => this.created.emit(newBug)); 
+        */
+
+    this.bugOperations
+        .createNew(this.newBugName)
+        .subscribe(() => {
+            this.router.navigate(['/bugs']);
+        })
   }
 }

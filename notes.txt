@@ -588,3 +588,37 @@ For removing a bug
     this.httpClient
         .delete<Bug>('http://localhost:3000/bugs/' + bug.id)
         .subscribe(() => console.log('Bug ' + bug.id + ' deleted'))
+
+
+Routing
+    Change of State from one to another
+    Navigating from one page to another
+    Replacing one template with another template
+
+
+https://www.amazon.in
+https://www.amazon.in/electronics
+https://www.amazon.in/electronics/mobile-phones
+https://www.amazon.in/electronics/mobile-phones/google
+https://www.amazon.in/electronics/mobile-phones/google/google-pixel-6
+
+https://www.amazon.in/electronics/mobile-phones/google/google-pixel-6/reviews (possible)
+
+
+Outlook
+Outlook/Inbox
+Outlook/Inbox/Projects
+Outlook/Inbox/Projects/ExpenseManager
+Outlook/Inbox/Projects/ExpenseManager/BugReports
+
+Outlook/Inbox/Projects/ExpenseManager/BugReports/Bug-101 (not possible)
+
+
+Bookmarking
+myapp.com/products
+myapp.com/calculator
+myapp.com/salary-calculator
+
+Angular 2.0 (Routing V.3.0)
+Angular 4.0 (Routing V.4.0)
+

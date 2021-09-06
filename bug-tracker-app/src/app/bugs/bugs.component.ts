@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/bug.model';
 import { BugOperationsService } from './services/bugOperartions.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bugs',
@@ -17,7 +18,8 @@ export class BugsComponent implements OnInit {
   
 
   constructor(
-    private bugOperations : BugOperationsService
+    private bugOperations : BugOperationsService,
+    private router : Router,
   ) { }
 
   ngOnInit(): void {
@@ -56,5 +58,8 @@ export class BugsComponent implements OnInit {
     closedBugs.forEach(closedBug => this.remove(closedBug));
   }
 
+  onDetailsClick(id : number){
+     this.router.navigate(['/details', id], { skipLocationChange : true});
+  }
 }
  

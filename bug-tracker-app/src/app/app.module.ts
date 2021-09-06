@@ -11,11 +11,14 @@ import { BugStatsComponent } from './bugs/components/bug-stats.component';
 import { BugEditComponent } from './bugs/components/bug-edit.component';
 import { UtilsModule } from './utils/utils.module';
 import { BugDetailsComponent } from './bugs/components/bug-details.component';
+import { LoginComponent } from './auth/login.component';
+import { LoggedInGuard } from './auth/loggedInGuard';
 
 let routes : Routes = [
-  { path: 'bugs', component : BugsComponent },
+  { path: 'bugs', component : BugsComponent, canActivate : [LoggedInGuard] },
   { path : 'add', component : BugEditComponent },
-  { path : 'details/:id', component : BugDetailsComponent},
+  { path : 'details/:id/:dummy', component : BugDetailsComponent},
+  { path : 'login', component : LoginComponent},
   { path : '', redirectTo : '/bugs', pathMatch : 'full' },
 ]
 
@@ -27,6 +30,7 @@ let routes : Routes = [
     BugStatsComponent,
     BugEditComponent,
     BugDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

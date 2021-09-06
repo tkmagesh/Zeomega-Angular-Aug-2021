@@ -622,3 +622,16 @@ myapp.com/salary-calculator
 Angular 2.0 (Routing V.3.0)
 Angular 4.0 (Routing V.4.0)
 
+Assignment:
+Add the "projects module" to the application
+    product = { id, name, description}
+
+Modify the 'bugs' module to associate each bug with a project
+
+when the visits the applcation
+    display the project list with the 'bugs' link for each project
+    When the bugs link is clicked display the bugs for the respective project
+
+Route Guard
+    - A guard is a function that is called before the route is activated
+    CanActivate

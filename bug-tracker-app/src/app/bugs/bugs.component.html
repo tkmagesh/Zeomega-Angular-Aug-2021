@@ -30,7 +30,7 @@
             </div>
             <input type="button" value="Remove" (click)="onRemoveClick(bug)">
             <div>
-                <a [routerLink]="['/details', bug.id]" [skipLocationChange]="true">Details...</a>
+                <a [routerLink]="['/details', bug.id, 'sample data']" >Details...</a>
             </div>
         </li>
     </ol>

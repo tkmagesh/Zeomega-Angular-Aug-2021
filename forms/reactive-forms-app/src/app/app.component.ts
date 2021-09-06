@@ -12,9 +12,9 @@ import { RegistrationService } from './registration.service';
 })
 export class AppComponent implements OnInit {
 
-  registrationForm: FormGroup;
+  registrationForm: FormGroup = new FormGroup({});
   // registrationForm = new FormGroup({
-  //   userName: new FormControl('Vishwas'),
+  //   userName: new FormControl(''),
   //   password: new FormControl(''),
   //   confirmPassword: new FormControl(''),
   //   address: new FormGroup({
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder, private _registrationService: RegistrationService) { }
 
   ngOnInit() {
-    this.registrationForm = this.fb.group({
+     this.registrationForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3), ForbiddenNameValidator(/password/)]],
       password: [''],
       confirmPassword: [''],
@@ -39,16 +39,16 @@ export class AppComponent implements OnInit {
       }),
       alternateEmails: this.fb.array([])
     }, { validator: PasswordValidator });
-
-    this.registrationForm.get('subscribe').valueChanges
+ 
+    this.registrationForm.get('subscribe')?.valueChanges
       .subscribe(checkedValue => {
         const email = this.registrationForm.get('email');
         if (checkedValue) {
-          email.setValidators(Validators.required);
+          email?.setValidators(Validators.required);
         } else {
-          email.clearValidators();
+          email?.clearValidators();
         }
-        email.updateValueAndValidity();
+        email?.updateValueAndValidity();
       });
   }
 

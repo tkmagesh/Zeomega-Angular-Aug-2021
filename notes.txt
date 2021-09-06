@@ -635,3 +635,37 @@ when the visits the applcation
 Route Guard
     - A guard is a function that is called before the route is activated
     CanActivate
+
+TODO:
+    Implement a login screen with server communication
+
+    
+Forms
+    Template Forms
+        Driven by the template
+            data binding in the template
+            validation rules in the template
+
+    Reactive Forms
+        - Code driven
+        - Easy to automate the testing
+
+Functionality
+    - data binding
+    - validation
+    - form submission
+    - form control state change
+        - user changed the data in the control
+        - user set the focus on the control or not
+        - valid or invalid
+
+        -ngPristine (Data in the control is not updated by the user)
+        -ngDirty (Data in the control is updated by the user)
+
+        -ngTouched (User visited the control))
+        -ngUntouched (User did not visit the control)
+        
+        -ngValid
+        -ngInvalid
+
+

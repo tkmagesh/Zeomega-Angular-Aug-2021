@@ -58,8 +58,10 @@ export class BugsComponent implements OnInit {
     closedBugs.forEach(closedBug => this.remove(closedBug));
   }
 
+  /* 
   onDetailsClick(id : number){
      this.router.navigate(['/details', id], { skipLocationChange : true});
-  }
+  } 
+  */
 }
  

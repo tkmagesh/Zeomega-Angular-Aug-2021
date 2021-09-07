@@ -1,4 +1,6 @@
+import { TestBed } from "@angular/core/testing";
 import { DateService, Greeter } from "./greeter";
+import { Logger } from "./logger";
 
 /* 
 class FakeDateServiceForMorning{
@@ -55,11 +57,12 @@ fdescribe("greeter", () =>{
     })
 }) */
 
-fdescribe("greeter", () =>{
+/* fdescribe("greeter", () =>{
     it("Should display 'Good Morning!' when greeted before 12", () => {
         const dateServiceSpy = jasmine.createSpyObj('DateService', {
             getCurrentDate: new Date(2021, 1,1,9,0,0)
         });
+        dateServiceSpy.whoAmI = 'DateServiceSpy';
         const loggerSpy = jasmine.createSpyObj('Logger', ['log'])
         const greeter = new Greeter(dateServiceSpy, loggerSpy);
         const userName = 'User1'
@@ -69,6 +72,7 @@ fdescribe("greeter", () =>{
         expect(result).toBe(expectedGreetMsg);
         expect(dateServiceSpy.getCurrentDate).toHaveBeenCalled();
         expect(loggerSpy.log).toHaveBeenCalledWith(expectedLogMsg);
+        
     });
 
     it("Should display 'Good Day!' when greeted after 12", () => {
@@ -85,4 +89,34 @@ fdescribe("greeter", () =>{
         expect(dateServiceSpy.getCurrentDate).toHaveBeenCalled();
         expect(loggerSpy.log).toHaveBeenCalledWith(expectedLogMsg);
     });
+})  */
+
+//using the angular module
+fdescribe("greeter", () =>{
+    it("Should display 'Good Morning!' when greeted before 12", () => {
+        const dateServiceSpy = jasmine.createSpyObj('DateService', {
+            getCurrentDate: new Date(2021, 1,1,9,0,0)
+        });
+        const loggerSpy = jasmine.createSpyObj('Logger', ['log']);
+
+        TestBed.configureTestingModule({
+            providers: [
+                Greeter,
+                { provide : DateService, useValue : dateServiceSpy},
+                { provide : Logger, useValue : loggerSpy}
+            ]
+        });
+
+        const greeter = TestBed.inject(Greeter);
+        const userName = 'User1'
+        const expectedGreetMsg = `Hi User1, Good Morning!`
+        const expectedLogMsg = `Greeting for User1 triggered`
+        const result = greeter.greet(userName);
+        expect(result).toBe(expectedGreetMsg);
+        expect(dateServiceSpy.getCurrentDate).toHaveBeenCalled();
+        expect(loggerSpy.log).toHaveBeenCalledWith(expectedLogMsg);
+        
+    });
+
+    
 }) 

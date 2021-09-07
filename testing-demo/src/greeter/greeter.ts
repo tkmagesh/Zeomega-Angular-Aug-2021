@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 import { Logger } from "./logger";
 
 export class DateService{
@@ -5,6 +6,8 @@ export class DateService{
         return new Date();
     }
 }
+
+@Injectable()
 export class Greeter{
     constructor(private dateService : DateService, private logger : Logger){
 

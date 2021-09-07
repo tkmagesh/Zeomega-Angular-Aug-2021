@@ -1,7 +1,7 @@
 import { fakeAsync, flush, flushMicrotasks, tick } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
 
-fdescribe('Async tests', ()=> {
+describe('Async tests', ()=> {
     it('should test for async operations', (done) => {
         function addAsync(x : number,y : number, callback : (result : number) => void){
             setTimeout(function(){

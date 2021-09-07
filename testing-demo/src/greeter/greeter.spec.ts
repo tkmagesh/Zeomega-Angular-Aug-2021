@@ -203,7 +203,7 @@ fdescribe("greeter", () =>{
     
 })  */
 
-fdescribe("greeter", () =>{
+describe("greeter", () =>{
     let loggerSpy : jasmine.SpyObj<Logger>;
     let greeter : Greeter;
     let dateServiceSpy : jasmine.SpyObj<DateService>;

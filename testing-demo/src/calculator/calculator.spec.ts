@@ -1,6 +1,6 @@
 import { Calculator } from "./calculator";
 
-fdescribe('Calculator', ()=> {
+describe('Calculator', ()=> {
 
     let calculator: Calculator ;
 
@@ -39,7 +39,7 @@ fdescribe('Calculator', ()=> {
         expect(calculator.operationCount).toEqual(1);
     });
 
-    xit('should fail', () => {
+    it('should fail', () => {
         fail()
     });
 })

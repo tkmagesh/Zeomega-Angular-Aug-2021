@@ -57,25 +57,32 @@ fdescribe("greeter", () =>{
 
 fdescribe("greeter", () =>{
     it("Should display 'Good Morning!' when greeted before 12", () => {
-        const fakeDateServiceForMorning = jasmine.createSpyObj('DateService', {
+        const dateServiceSpy = jasmine.createSpyObj('DateService', {
             getCurrentDate: new Date(2021, 1,1,9,0,0)
         });
-        const greeter = new Greeter(fakeDateServiceForMorning);
+        const loggerSpy = jasmine.createSpyObj('Logger', ['log'])
+        const greeter = new Greeter(dateServiceSpy, loggerSpy);
         const userName = 'User1'
         const expectedGreetMsg = `Hi User1, Good Morning!`
+        const expectedLogMsg = `Greeting for User1 triggered`
         const result = greeter.greet(userName);
         expect(result).toBe(expectedGreetMsg);
-        expect(fakeDateServiceForMorning.getCurrentDate).toHaveBeenCalled()
+        expect(dateServiceSpy.getCurrentDate).toHaveBeenCalled();
+        expect(loggerSpy.log).toHaveBeenCalledWith(expectedLogMsg);
     });
 
-    /* xit("Should display 'Good Day!' when greeted after 12", () => {
-        //const fakeDateServiceForNoon = new FakeDateServiceForNoon();
-        const fakeDateServiceForNoon = new FakeDateService(new Date(2021, 1,1,14,0,0));
-        const greeter = new Greeter(fakeDateServiceForNoon);
+    it("Should display 'Good Day!' when greeted after 12", () => {
+        const dateServiceSpy = jasmine.createSpyObj('DateService', {
+            getCurrentDate: new Date(2021, 1,1,14,0,0)
+        });
+        const loggerSpy = jasmine.createSpyObj('Logger', ['log'])
+        const greeter = new Greeter(dateServiceSpy, loggerSpy);
         const userName = 'User1'
         const expectedGreetMsg = `Hi User1, Good Day!`
+        const expectedLogMsg = `Greeting for User1 triggered`
         const result = greeter.greet(userName);
         expect(result).toBe(expectedGreetMsg);
-        expect(fakeDateServiceForNoon.isGetCurrentDateCalled()).toBe(true);
-    }) */
+        expect(dateServiceSpy.getCurrentDate).toHaveBeenCalled();
+        expect(loggerSpy.log).toHaveBeenCalledWith(expectedLogMsg);
+    });
 }) 

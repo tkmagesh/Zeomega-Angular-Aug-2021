@@ -669,3 +669,76 @@ Functionality
         -ngInvalid
 
 
+Testing
+=======
+    Organizing tests
+        describe (xdescribe, fdescribe)
+            describe a feature of the application
+                calculator - feature
+                    add - feature
+
+
+        it (xit, fit)
+            describe a specific behavior of the feature (test case)
+                calculator
+                    add
+                        adding two positive numbers
+                        adding two negative numbers
+                        adding one positive and one negative number
+                        adding one positive number with zero
+                        adding one negative number with zero
+
+        beforeEach()
+            executed before each test case
+
+        afterEach()
+            executed after each test case
+
+    Perform assertions
+        expect()
+            expect(actualResult).toBe(expectedResult)
+            expect(actualResult).toEqual(expectedResult)
+            expect(spy).toHaveBeenCalledWith(args)
+            expect(spy).toHaveBeenCalledTimes(1)
+
+        matchers
+            toBe()
+            toEqual()
+            toBeTruthy()
+            toBeFalsy()
+            toBeNull()
+            toBeDefined()
+            toBeUndefined()
+            toBeGreaterThan()
+            toBeLessThan()
+            toContain()
+            toBeCloseTo()
+
+            toHaveBeenCalled()
+            toHaveBeenCalledWith()
+            toHaveBeenCalledTimes()
+            etc
+
+
+    Mock the dependencies
+        jasmine.createSpy()
+        spyOn()
+
+Alternatives
+    Mocha
+        describe, it, beforeEach, afterEach
+        choice of assertion library
+            chai.js
+                expect.js
+                assert.js   
+                should.js
+        choice of mock library
+            sinon.js
+        choice of test reporters
+
+    jest.js
+
+
+Assert.isEqual(actualResult, expectedResult)
+actualResult.should.be.equal(expectedResult)
+actualResult.should.not.be.equal(expectedResult)

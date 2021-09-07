@@ -24,7 +24,7 @@ describe('Calculator', ()=> {
         expect(calculator.operationCount).toEqual(1);
     });
 
-    it('should add two negative number', ()=> {
+    it('should add two negative number', (done)=> {
         //arrange
         //const calculator = new Calculator();
 
@@ -37,9 +37,10 @@ describe('Calculator', ()=> {
         //assert
         expect(result).toBe(expectedResult);
         expect(calculator.operationCount).toEqual(1);
+        done()
     });
 
-    it('should fail', () => {
+    /* it('should fail', () => {
         fail()
-    });
+    }); */
 })

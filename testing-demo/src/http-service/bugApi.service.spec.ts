@@ -4,7 +4,7 @@ import { BugApiService } from './bugApi.service';
 import testData from './test-data'
 import { Bug } from './bug.model';
 
-fdescribe('BugApi service', () => {
+describe('BugApi service', () => {
     let bugApi : BugApiService;
     let httpTestingController : HttpTestingController;
     beforeEach(() => {

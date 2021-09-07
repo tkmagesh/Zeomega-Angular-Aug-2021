@@ -742,3 +742,8 @@ Alternatives
 Assert.isEqual(actualResult, expectedResult)
 actualResult.should.be.equal(expectedResult)
 actualResult.should.not.be.equal(expectedResult)
+
+
+TO DO:
+    Update the greeter component to use the greeter service
+    Update the component tests accordingly

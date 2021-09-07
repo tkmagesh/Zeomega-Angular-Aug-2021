@@ -14,7 +14,9 @@ class FakeDateServiceForNoon{
 } 
 */
 
-class FakeDateService{
+
+//using custom fake services
+/* class FakeDateService{
     private getCurrentDateCalled : boolean = false;
 
     constructor(private dt : Date){
@@ -51,4 +53,29 @@ fdescribe("greeter", () =>{
         expect(result).toBe(expectedGreetMsg);
         expect(fakeDateServiceForNoon.isGetCurrentDateCalled()).toBe(true);
     })
-})
+}) */
+
+fdescribe("greeter", () =>{
+    it("Should display 'Good Morning!' when greeted before 12", () => {
+        const fakeDateServiceForMorning = jasmine.createSpyObj('DateService', {
+            getCurrentDate: new Date(2021, 1,1,9,0,0)
+        });
+        const greeter = new Greeter(fakeDateServiceForMorning);
+        const userName = 'User1'
+        const expectedGreetMsg = `Hi User1, Good Morning!`
+        const result = greeter.greet(userName);
+        expect(result).toBe(expectedGreetMsg);
+        expect(fakeDateServiceForMorning.getCurrentDate).toHaveBeenCalled()
+    });
+
+    /* xit("Should display 'Good Day!' when greeted after 12", () => {
+        //const fakeDateServiceForNoon = new FakeDateServiceForNoon();
+        const fakeDateServiceForNoon = new FakeDateService(new Date(2021, 1,1,14,0,0));
+        const greeter = new Greeter(fakeDateServiceForNoon);
+        const userName = 'User1'
+        const expectedGreetMsg = `Hi User1, Good Day!`
+        const result = greeter.greet(userName);
+        expect(result).toBe(expectedGreetMsg);
+        expect(fakeDateServiceForNoon.isGetCurrentDateCalled()).toBe(true);
+    }) */
+}) 

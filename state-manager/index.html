@@ -6,9 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>State Manager</title>
     <script src="state-manager.js"></script>
+    <script>
+        /* 
+            function spinnerReducer(currentState = 0, action){
+                if (action.type === 'INCREMENT') return currentState + action.payload;
+                if (action.type === 'DECREMENT') return currentState - action.payload;
+                return currentState;
+            }
+            var store = StateManager.createStore(spinnerReducer)
+            store.subscribe(() => console.log(`current state = ${store.getState()}`))
+            //action creators
+            function increment(delta){
+                return { type : 'INCREMENT', payload : delta };
+            }
+            function decrement(delta){
+                return { type : 'DECREMENT', payload : delta };
+            }
+            store.dispatch(increment(5))
+        */
 
+    </script>
 </head>
 <body>
     <h3>State Manager</h3>
+
+    <input type="number">
 </body>
 </html>

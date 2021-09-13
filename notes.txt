@@ -747,3 +747,16 @@ actualResult.should.not.be.equal(expectedResult)
 TO DO:
     Update the greeter component to use the greeter service
     Update the component tests accordingly
+
+
+State
+    - UI State
+        Data that supports the presentation needs of the application
+        It is highly UNLIKELY that this data is needed throughout the application
+        Feel free to maintain this data in the component
+
+    - Application State
+        Data that supports the core logic of the application
+        It is highly LIKELY that this data is needed throughout the application
+        DO NOT maintain this data in the component
+

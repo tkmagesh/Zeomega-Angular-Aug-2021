@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { increment, decrement } from './spinner.actions'
+import { increment, decrement, reset } from './spinner.actions'
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -7,9 +7,15 @@ import { Store } from '@ngrx/store';
     template : `
         <h3>Spinner</h3>
         <hr>
-        <input type="button" value="Decrement" (click)="onDecrementClick()">
+        <div>
+            <label>Delta :</label>
+            <input type="number" #txtDelta>
+        </div>
+        <input type="button" value="Decrement" (click)="onDecrementClick(txtDelta.value)">
         <span>[{{counter}}]</span>
-        <input type="button" value="Increment" (click)="onIncrementClick()">
+        <input type="button" value="Increment" (click)="onIncrementClick(txtDelta.value)">
+        <br/>
+        <input type="button" value="Reset" (click)="onResetClick()">
     `
 })
 export class SpinnerComponent{
@@ -21,12 +27,15 @@ export class SpinnerComponent{
             .subscribe(counter => this.counter = counter);
     }
 
-    onIncrementClick(){
-        const action = increment();
+    onIncrementClick(value : string){
+        const action = increment(parseInt(value));
         console.log(action);
         this.store.dispatch(action);
     }
-    onDecrementClick(){
-        this.store.dispatch(decrement());
+    onDecrementClick(value : string){
+        this.store.dispatch(decrement(parseInt(value)));
+    }
+    onResetClick(){
+        this.store.dispatch(reset());
     }
 }

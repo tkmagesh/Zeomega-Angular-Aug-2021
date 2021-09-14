@@ -760,3 +760,28 @@ State
         It is highly LIKELY that this data is needed throughout the application
         DO NOT maintain this data in the component
 
+State manager
+    Store 
+        The whole application state is maintained in the store
+        The single source of truth for the application
+
+    Reducer
+        A function that decides the next state of the store based on the action
+        The reducer function has to be a pure function
+        The reducer function should not have side effects
+        The reducer function should not mutate the state 
+        Any state changes has to happen in an immutable way
+
+    Action
+        An object that contains the information about the action
+        An action object should be unique throughout the application
+        An action object will carry the supporting data needed to process the action by the reducer
+
+    Action Creator
+        A function that encapsulates the logic for creating an action object
+
+ngRx
+    
+    npm install @ngrx/store
+
+    

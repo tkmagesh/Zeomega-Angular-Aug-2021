@@ -3,6 +3,8 @@ import { Observable } from "rxjs";
 import { Bug } from "../models/bug.model";
 import { BugApiService } from "./bugApi.service";
 import { BugStorageService } from "./bugStorage.service";
+import { Store } from '@ngrx/store';
+import { addBugAction, removeBugAction, loadBugAction, replaceBugAction } from '../actions/bug.actions';
 
 @Injectable({
     providedIn: "root"
@@ -11,38 +13,44 @@ export class BugOperationsService{
     
 
     constructor(
-        private bugStorage : BugStorageService
+        private bugStorage : BugStorageService,
+        private store : Store<{bugs : Bug[]}>
     ){
 
     }
 
-    getAll() : Bug[]{
+    getAll() {
         //return this.bugStorage.getAll();
-        return this.bugStorage.getAll();
+        let bugs =  this.bugStorage.getAll();
+        this.store.dispatch(loadBugAction(bugs));
     }
 
     getById(id : string) : Bug{
         return this.bugStorage.getById(id);
     }
     
-    createNew(bugName : string) : Bug {
-         const newBug = {
+    createNew(bugName : string) {
+         const newBugData = {
             id : 0,
             name : bugName,
             isClosed : false,
             createdAt : new Date()
         }
-        return this.bugStorage.save(newBug);
+        const newBug = this.bugStorage.save(newBugData);
+        this.store.dispatch(addBugAction(newBug));
     }
 
-    toggle(bug : Bug) : Bug {
+    toggle(bug : Bug) {
         //bug.isClosed = !bug.isClosed;
         const toggledBug = { ...bug, isClosed : !bug.isClosed}
-        return this.bugStorage.save(toggledBug);
+        this.bugStorage.save(toggledBug);
+        this.store.dispatch(replaceBugAction(toggledBug));
+
     }
 
     remove(bug : Bug) : void {
-        return this.bugStorage.remove(bug);
+        this.bugStorage.remove(bug);
+        this.store.dispatch(removeBugAction(bug));
     }
     /* constructor(
         private bugApi : BugApiService

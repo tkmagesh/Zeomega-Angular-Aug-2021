@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/bug.model';
 import { BugOperationsService } from './services/bugOperartions.service';
 import { Store } from '@ngrx/store';
-import { addBugAction, removeBugAction, loadBugAction } from './actions/bug.actions';
+
 
 @Component({
   selector: 'app-bugs',
@@ -27,15 +27,13 @@ export class BugsComponent implements OnInit {
     this.store.select('bugs')
       .subscribe(bugs => this.bugs = bugs);
     
-    let bugsInStorage = this.bugOperations.getAll();
-    this.store.dispatch(loadBugAction(bugsInStorage));
-      
+    this.bugOperations.getAll();  
   }
 
   //subscription to the child (bug-edit) component
   onBugCreated(newBug : Bug){
     // immutable state
-    this.store.dispatch(addBugAction(newBug));
+    //this.store.dispatch(addBugAction(newBug));
   }
   
 
@@ -46,14 +44,10 @@ export class BugsComponent implements OnInit {
   private remove(bugToRemove : Bug){
     this.bugOperations
       .remove(bugToRemove)
-    this.store.dispatch(removeBugAction(bugToRemove));
-    
   }
 
   onBugNameClick(bug : Bug){
-    let toggledBug = this.bugOperations.toggle(bug)
-    this.bugs = this.bugs.map(bug => bug.id === toggledBug.id ? toggledBug : bug);
-    
+    this.bugOperations.toggle(bug)
   }
 
   onRemoveClosedClick(){

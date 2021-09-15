@@ -1,6 +1,6 @@
 import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
-import { addBugAction, loadBugAction, removeBugAction } from '../actions/bug.actions'
+import { addBugAction, loadBugAction, removeBugAction, replaceBugAction } from '../actions/bug.actions'
 import { Bug } from '../models/bug.model'
 
 const initialState : Array<Bug> = [{
@@ -13,6 +13,7 @@ const _bugsReducer = createReducer(
     initialState,
     on(addBugAction, (state, {bug}) => [...state, bug]),
     on(removeBugAction, (state, {bug}) => state.filter(b => b.id !== bug.id)),
+    on(replaceBugAction, (state, {bug}) => state.map(b => b.id === bug.id ? bug : b)),
     on(loadBugAction, (state  , {bugs}) => bugs)
 );
 

@@ -18,9 +18,6 @@ import { BugOperationsService } from "../services/bugOperartions.service";
 export class BugEditComponent{
     newBugName : string = '';
 
-    @Output()
-    created : EventEmitter<Bug> = new EventEmitter<Bug>();
-    
     constructor(
         private bugOperations : BugOperationsService,
        /*  private router : Router, */
@@ -29,23 +26,8 @@ export class BugEditComponent{
     }
 
     onAddNewClick() {
-    //const newBug = this.bugOperations.createNew(this.newBugName);
-    //state mutation
-    //this.bugs.push(newBug);
-
-    // immutable state
-    //this.bugs = [...this.bugs, newBug];
-     
-    const newBug = this.bugOperations
-        .createNew(this.newBugName)
-    this.created.emit(newBug);
-        //.subscribe(newBug => this.created.emit(newBug)); 
     
-
-    /* this.bugOperations
-        .createNew(this.newBugName)
-        .subscribe(() => {
-            this.router.navigate(['/bugs']);
-        }) */
-  }
+        this.bugOperations
+            .createNew(this.newBugName)
+    }
 }

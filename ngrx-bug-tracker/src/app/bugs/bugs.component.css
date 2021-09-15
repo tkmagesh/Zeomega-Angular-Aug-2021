@@ -1,0 +1,36 @@
+section{
+    margin-bottom: 10px;
+}
+.stats, .bugname{
+    font-size: 18pt;
+}
+.closed{
+    color : red;
+    text-decoration: line-through;
+    font-style: italic;
+    font-weight: bold;
+}
+.bugname{
+    cursor : pointer;
+}
+ol{
+    list-style: none;
+    width : 450px;
+    -webkit-padding-start: 0px;
+}
+.list{
+     padding : 10px;
+     border : 2px solid black;
+     border-radius: 5px;
+     width : 500px;
+}
+li{
+    margin-bottom: 10px;
+    padding : 10px;
+    border: 1px solid gray;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+}
+.datetime{
+    font-style: italic;
+}
